@@ -44,6 +44,8 @@ static const NSInteger animationDuration = 15;
         CGFloat viewHeight = frame.size.height;
         labelHeight = viewHeight;
 
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [self addSubview:scrollView];
         
         UILabel *myLable = [[UILabel alloc]init];
         myLable.text = title;
@@ -59,7 +61,7 @@ static const NSInteger animationDuration = 15;
         
         myLable.frame = currentFrame;
         
-        [self addSubview:myLable];
+        [scrollView addSubview:myLable];
         
         labelArray  = [NSMutableArray arrayWithObject:myLable];
         
@@ -71,7 +73,7 @@ static const NSInteger animationDuration = 15;
             behindLabel.font = [UIFont systemFontOfSize:16.0f];
             behindLabel.backgroundColor = [UIColor orangeColor];
             [labelArray addObject:behindLabel];
-            [self addSubview:behindLabel];
+            [scrollView addSubview:behindLabel];
             
 
             [self doCustomAnimation];
